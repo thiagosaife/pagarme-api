@@ -37,3 +37,28 @@ exports.findAll = (req, res) => {
       });
     });
 };
+
+exports.findCredits = (req, res) => {
+  const transactionsRules = new TransactionsRules();
+  Transaction.find({
+    'status': { $eq: 'waiting_funds' }
+  }).then(transactions => {
+    res.send(transactionsRules.sumValues(transactions));
+  }).catch(err => {
+    res.status(500).send({
+      message: err.message
+    });
+  });
+};
+exports.findDebits = (req, res) => {
+  const transactionsRules = new TransactionsRules();
+  Transaction.find({
+    'status': { $eq: 'paid' }
+  }).then(transactions => {
+    res.send(transactionsRules.sumValues(transactions));
+  }).catch(err => {
+    res.status(500).send({
+      message: err.message
+    });
+  });
+};
