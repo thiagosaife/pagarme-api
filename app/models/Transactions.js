@@ -20,6 +20,13 @@ const TransactionsSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  fee: {
+    type: Number,
+    required: true,
+  },
+  feeApplied: {
+    type: Number,
+  },
   paymentDate: {
     type: String,
     required: true,
