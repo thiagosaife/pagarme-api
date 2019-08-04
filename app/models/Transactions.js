@@ -20,6 +20,17 @@ const TransactionsSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  fee: {
+    type: Number,
+    required: true,
+  },
+  feeApplied: {
+    type: Number,
+  },
+  paymentDate: {
+    type: String,
+    required: true,
+  },
   price: {
     type: String,
     required: true,
@@ -27,6 +38,10 @@ const TransactionsSchema = mongoose.Schema({
   selectedMethod: {
     type: String,
     required: true
+  },
+  status: {
+    type: String,
+    required: true,
   }
 }, {
   timestamps: true
