@@ -48,6 +48,14 @@ class TransactionRules {
     const plusMonth = moment(new Date()).add(30,'days').format('DD/MM/YYYY');
     return this.payMethod === this.methods[0] ? plusMonth : date;
   }
+
+  sumValues(transactions) {
+    if (!transactions.length) {
+      return { fee: 0 };
+    }
+    const sum = transactions.reduce((a, b) => ({ fee: a.fee + b.fee }));
+    return sum;
+  }
 }
 
 module.exports = TransactionRules;
