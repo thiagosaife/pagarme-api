@@ -1,3 +1,6 @@
+#Pre-requisites
+Node and npm installed on your system
+
 # pagarme-api
 PagarMe - Basic CRUD - Back end
 
