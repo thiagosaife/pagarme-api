@@ -44,9 +44,12 @@ class TransactionRules {
   }
 
   setPaymentDate() {
+    if (this.payMethod === this.methods[0]) {
+      const plusMonth = moment(new Date()).add(30,'days').format('DD/MM/YYYY');
+      return plusMonth;
+    }
     const date = moment(new Date()).format('DD/MM/YYYY');
-    const plusMonth = moment(new Date()).add(30,'days').format('DD/MM/YYYY');
-    return this.payMethod === this.methods[0] ? plusMonth : date;
+    return date;
   }
 
   sumValues(transactions) {
