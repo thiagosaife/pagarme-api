@@ -1,3 +1,6 @@
+#Pre-requisites
+Node and npm installed on your system
+
 # pagarme-api
 PagarMe - Basic CRUD - Back end
 
@@ -6,8 +9,14 @@ PagarMe - Basic CRUD - Back end
 npm install
 ```
 
-### Compiles and hot-reloads for development
-### For evalutation purposes, use this option.
+### Open a terminal tab to run server
 ```
 npm run serve
 ```
+
+### Important information
+You must run the front-end application in order to interact with this server.
+Please refer to https://github.com/thiagosaife/pagarme-front, clone the repo and follow the Readme instructions.
+
+### Questions?
+You can reach me by e-mail: <tsaiferodrigues@gmail.com>
