@@ -1,14 +1,18 @@
 const Transaction = require('../models/Transactions');
+const TransactionsRules = require('../rules/Transactions');
 
 exports.create = (req, res) => {
+  const transactionsRules = new TransactionsRules();
   const transaction = new Transaction({
     cardOwner: req.body.cardOwner,
-    cardNumber: req.body.cardNumber,
+    cardNumber: transactionsRules.eraseCardNumbers(req.body.cardNumber),
     cardValidityDate: req.body.cardValidityDate,
     cardVerificationCode: req.body.cardVerificationCode,
     description: req.body.description,
+    paymentDate: transactionsRules.setPaymentDate(req.body.selectedMethod),
     price: req.body.price,
     selectedMethod: req.body.selectedMethod,
+    status: transactionsRules.setPayableStatus(req.body.selectedMethod)
   });
 
   transaction.save()
